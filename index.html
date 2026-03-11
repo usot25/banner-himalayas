@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://www.google.com/s2/favicons?domain=https://www.onetrust.com/" />
+
+    <title>The Himalayas - Himalaya Atlas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Inter, sans-serif;
+        }
+
+        body {
+            background: #0c0f14;
+            color: #e8edf3;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        /* Layout */
+
+        .container {
+            width: 90%;
+            max-width: 1180px;
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 0;
+        }
+
+        .logo {
+            font-weight: 600;
+            letter-spacing: .5px;
+            font-size: 18px;
+            color: #dce7ff;
+        }
+
+        .nav-links a {
+            margin-left: 28px;
+            text-decoration: none;
+            color: #a7b3c7;
+            font-size: 14px;
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 140px 0 120px 0;
+            text-align: center;
+
+            background:
+                radial-gradient(circle at top, #1a2433, #0c0f14);
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 700;
+            margin-bottom: 22px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: auto;
+            color: #aab6cc;
+            font-size: 18px;
+        }
+
+        .hero-buttons {
+            margin-top: 42px;
+        }
+
+        /* Buttons */
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            transition: .25s;
+        }
+
+        .primary {
+            background: #4c7dff;
+            color: white;
+        }
+
+        .primary:hover {
+            transform: translateY(-2px);
+            background: #5b8bff;
+        }
+
+        .secondary {
+            background: transparent;
+            border: 1px solid #2a3240;
+            color: #cfd7e6;
+        }
+
+        .secondary:hover {
+            background: #151a23;
+        }
+
+        /* Sections */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* Grid */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        /* Cards */
+
+        .card {
+            background: #121720;
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #1e2532;
+
+            transition: .25s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #2d3b50;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #9dadc4;
+            font-size: 14.5px;
+        }
+
+        /* Dark Alt */
+
+        .alt {
+            background: #0f141d;
+        }
+
+        /* Highlight Feature */
+
+        .feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .feature h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .feature p {
+            color: #a6b2c6;
+        }
+
+        @media(max-width:900px) {
+            .feature {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CTA */
+
+        .cta {
+            text-align: center;
+            background: linear-gradient(180deg, #111620, #0c0f14);
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: #aab4c6;
+            margin-bottom: 32px;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #1a2230;
+            text-align: center;
+            color: #8d9bb2;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <nav>
+
+            <!-- <div class="logo">Himalaya Atlas</div> -->
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="peaks.html">Peaks</a>
+                <a href="mountain-facts.html">Facts</a>
+                <!-- <a href="#">Expeditions</a> -->
+            </div>
+
+        </nav>
+
+    </div>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <h1>The Himalayas</h1>
+
+            <p>
+                Stretching across Asia for more than 2,400 kilometers, the Himalayas form the highest mountain range on
+                Earth.
+                Created by the collision of the Indian and Eurasian tectonic plates, these mountains continue to rise
+                even today, shaping climate, rivers, and ecosystems across the continent.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="peaks.html" class="btn primary">Explore the Peaks</a>
+                <a href="mountain-facts.html" class="btn secondary">Mountain Facts</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PEAKS -->
+
+    <section>
+
+        <div class="container">
+
+            <h2 class="section-title">Legendary Peaks</h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>Mount Everest</h3>
+                    <p>
+                        At 8,848.86 meters above sea level, Mount Everest is the tallest mountain on Earth.
+                        Known locally as Sagarmatha in Nepal and Chomolungma in Tibet, it attracts climbers from around
+                        the world seeking the highest point on the planet.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>K2</h3>
+                    <p>
+                        Standing 8,611 meters tall, K2 is the second-highest mountain in the world.
+                        Located in the Karakoram Range, it is famous for its steep slopes and extreme weather, making it
+                        one of the most challenging mountains to climb.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Kangchenjunga</h3>
+                    <p>
+                        The third-highest peak on Earth at 8,586 meters, Kangchenjunga lies on the border of Nepal and
+                        India.
+                        Its name translates to “Five Treasures of Snow,” reflecting the five prominent summits that form
+                        the massif.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FORMATION -->
+
+    <section class="alt">
+
+        <div class="container">
+
+            <div class="feature">
+
+                <div>
+
+                    <h2>How the Himalayas Formed</h2>
+
+                    <p>
+                        Around 50 million years ago, the Indian continental plate collided with the Eurasian plate.
+                        Because both plates were relatively buoyant continental crust, neither sank beneath the other.
+                        Instead, the crust crumpled and folded upward, gradually forming the immense mountain chain
+                        known as the Himalayas.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Even today, this tectonic collision continues to push the mountains higher by several
+                        millimeters each year.
+                        This ongoing geological activity also contributes to earthquakes throughout the region.
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <div class="card">
+
+                        <h3>Height</h3>
+                        <p>
+                            The Himalayas contain the world’s tallest peaks, including all fourteen mountains exceeding
+                            8,000 meters above sea level.
+                        </p>
+
+                    </div>
+
+                    <br>
+
+                    <div class="card">
+
+                        <h3>Rivers</h3>
+                        <p>
+                            Major rivers such as the Ganges, Indus, and Brahmaputra originate in Himalayan glaciers,
+                            supplying water to hundreds of millions of people.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FACTS -->
+
+    <section>
+
+        <div class="container">
+
+            <h2 class="section-title">Remarkable Mountain Facts</h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>Young Mountains</h3>
+                    <p>
+                        Compared to many mountain systems, the Himalayas are geologically young, forming within the last
+                        50 million years.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Glacial Giants</h3>
+                    <p>
+                        The Himalayas contain the largest concentration of glaciers outside the polar regions, sometimes
+                        called the “Third Pole.”
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Extreme Climate</h3>
+                    <p>
+                        Weather conditions can change dramatically within hours, with powerful winds and temperatures
+                        dropping far below freezing.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Biodiversity</h3>
+                    <p>
+                        From subtropical forests to alpine tundra, the Himalayan region hosts diverse ecosystems and
+                        species including snow leopards and Himalayan monals.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <h2>Discover the World's Greatest Mountains</h2>
+
+            <p>
+                Learn about the peaks, geology, and natural wonders that make the Himalayas one of Earth's most
+                extraordinary landscapes.
+            </p>
+
+            <a href="mountain-facts.html" class="btn primary">Begin the Journey</a>
+            <a href="mountain.html" class="btn primary">Begin the Journey Again</a>
+
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        © 2026 Himalaya Atlas — Exploring the highest mountains on Earth
+
+    </footer>
+
+</body>
+
+</html>

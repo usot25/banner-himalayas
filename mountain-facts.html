@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://www.google.com/s2/favicons?domain=https://www.onetrust.com/" />
+
+    <title>Mountain Facts - Himalaya Atlas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Inter, sans-serif;
+        }
+
+        body {
+            background: #0b0f15;
+            color: #e8edf5;
+            line-height: 1.7;
+        }
+
+        /* container */
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* navbar */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #0b0f15;
+            z-index: 999;
+            border-bottom: 1px solid #1e2735;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-weight: 600;
+            color: #dbe5ff;
+        }
+
+        .nav-links a {
+            margin-left: 26px;
+            text-decoration: none;
+            color: #aab4c9;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* progress bar */
+
+        .progress {
+            height: 3px;
+            background: #4c7dff;
+            width: 0%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* hero */
+
+        .hero {
+            padding: 150px 0 100px 0;
+            text-align: center;
+
+            background: radial-gradient(circle at top, #1b2333, #0b0f15);
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: auto;
+            color: #a7b3c8;
+        }
+
+        /* sections */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            font-size: 34px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* card layout */
+
+        .fact-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all .8s ease;
+        }
+
+        .fact-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fact-card img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .fact-text h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .fact-text span {
+            color: #8fa2c3;
+            font-size: 14px;
+        }
+
+        .fact-text p {
+            margin-top: 14px;
+            color: #b7c1d8;
+        }
+
+        /* facts grid */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #151c27, #0f141d);
+            border: 1px solid #273246;
+            border-radius: 14px;
+            padding: 28px;
+            transition: all .3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .card h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #e7ecf5;
+        }
+
+        .card p {
+            color: #a9b4c8;
+            font-size: 14.5px;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #4c7dff;
+            box-shadow: 0 15px 40px rgba(76, 125, 255, 0.15);
+        }
+
+        /* footer */
+
+        footer {
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid #1d2533;
+            color: #8f9ab2;
+        }
+
+        @media(max-width:900px) {
+
+            .fact-card {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+        }
+
+        /* back button */
+
+        .back-btn {
+            margin-left: 30px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid #2c3950;
+            background: #141a24;
+            color: #dbe5ff;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all .25s ease;
+        }
+
+        .back-btn:hover {
+            background: #4c7dff;
+            border-color: #4c7dff;
+            color: white;
+            transform: translateY(-1px);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="container nav-inner">
+
+            <!-- <div class="logo">Himalaya Atlas</div> -->
+
+            <div class="nav-links">
+                <a href="index.html" class="back-btn">← Back</a>
+
+                <a href="index.html">Home</a>
+                <a href="peaks.html">Peaks</a>
+                <a href="mountain-facts.html">Facts</a>
+
+
+            </div>
+
+        </div>
+
+        <div class="progress" id="progress"></div>
+
+    </nav>
+
+
+    <section class="hero">
+
+        <div class="container">
+
+            <h1>Mountain Facts</h1>
+
+            <p>
+                From the highest peaks on Earth to historic first ascents, mountains hold extraordinary geological,
+                cultural, and climbing history.
+                This page highlights remarkable facts about the world’s most iconic summits.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <div class="container">
+
+            <h2 class="section-title">Iconic Peaks</h2>
+
+            <div class="fact-card">
+
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/1/12/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Mount Everest</h3>
+
+                    <span>Height: 8,848.86 m • Nepal / China</span>
+
+                    <p>
+                        Mount Everest is the highest mountain on Earth, rising to about 8,849 meters above sea level.
+                        :contentReference[oaicite:0]{index=0}
+                    </p>
+
+                    <p>
+                        The first confirmed ascent was achieved in 1953 by Sir Edmund Hillary and Tenzing Norgay.
+                        :contentReference[oaicite:1]{index=1}
+                    </p>
+
+                    <p>
+                        Everest lies along the crest of the Himalayas and continues to grow slightly due to tectonic
+                        plate movement.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/K2_2006b.jpg">
+
+                <div class="fact-text">
+
+                    <h3>K2</h3>
+
+                    <span>Height: 8,611 m • Pakistan / China</span>
+
+                    <p>
+                        K2 is the second-highest mountain in the world and is part of the Karakoram range.
+                        :contentReference[oaicite:2]{index=2}
+                    </p>
+
+                    <p>
+                        Often called the “Savage Mountain,” it is widely regarded as one of the most difficult peaks to
+                        climb due to steep terrain and unpredictable weather.
+                    </p>
+
+                    <p>
+                        The first ascent of K2 occurred in 1954 by an Italian expedition led by Achille Compagnoni and
+                        Lino Lacedelli.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Kangchenjunga.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Kangchenjunga</h3>
+
+                    <span>Height: 8,586 m • Nepal / India</span>
+
+                    <p>
+                        Kangchenjunga is the third-highest mountain in the world. :contentReference[oaicite:3]{index=3}
+                    </p>
+
+                    <p>
+                        The first successful ascent occurred on 25 May 1955 by British climbers Joe Brown and George
+                        Band. :contentReference[oaicite:4]{index=4}
+                    </p>
+
+                    <p>
+                        The mountain is sacred in the region, and climbers traditionally stop just short of the summit
+                        out of respect.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Annapurna_South.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Annapurna I</h3>
+
+                    <span>Height: 8,091 m • Nepal</span>
+
+                    <p>
+                        Annapurna I is the tenth-highest mountain in the world. :contentReference[oaicite:5]{index=5}
+                    </p>
+
+                    <p>
+                        It became famous in 1950 when Maurice Herzog and Louis Lachenal made the first successful ascent
+                        of any 8,000-meter peak. :contentReference[oaicite:6]{index=6}
+                    </p>
+
+                    <p>
+                        Despite its beauty, Annapurna is considered one of the most dangerous mountains due to frequent
+                        avalanches.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Makalu.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Makalu</h3>
+
+                    <span>Height: 8,485 m • Nepal / China</span>
+
+                    <p>
+                        Makalu is the fifth-highest mountain in the world and lies southeast of Mount Everest in the
+                        Himalayas.
+                    </p>
+
+                    <p>
+                        The mountain has a distinctive pyramid shape with sharp ridges and steep faces.
+                    </p>
+
+                    <p>
+                        It was first successfully climbed in 1955 by a French expedition led by Jean Franco.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Cho_Oyu.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Cho Oyu</h3>
+
+                    <span>Height: 8,188 m • Nepal / China</span>
+
+                    <p>
+                        Cho Oyu is the sixth-highest mountain in the world and sits near the Tibetan border west of
+                        Everest.
+                    </p>
+
+                    <p>
+                        It is often considered the most accessible of the 8,000-meter peaks due to relatively moderate
+                        slopes.
+                    </p>
+
+                    <p>
+                        The first ascent was made in 1954 by Austrian climbers Herbert Tichy, Joseph Jöchler, and Sherpa
+                        Pasang Dawa Lama.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Dhaulagiri_mountain.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Dhaulagiri I</h3>
+
+                    <span>Height: 8,167 m • Nepal</span>
+
+                    <p>
+                        Dhaulagiri means “White Mountain” in Sanskrit and is the seventh-highest mountain on Earth.
+                    </p>
+
+                    <p>
+                        Before Everest was accurately measured, Dhaulagiri was briefly believed to be the highest
+                        mountain in the world.
+                    </p>
+
+                    <p>
+                        The first successful ascent was achieved in 1960 by a Swiss-Austrian-Nepali expedition.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Manaslu.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Manaslu</h3>
+
+                    <span>Height: 8,163 m • Nepal</span>
+
+                    <p>
+                        Manaslu is the eighth-highest mountain in the world and lies in the Mansiri Himal range of
+                        Nepal.
+                    </p>
+
+                    <p>
+                        Its name derives from the Sanskrit word “Manasa,” meaning intellect or spirit.
+                    </p>
+
+                    <p>
+                        The first ascent occurred in 1956 by Japanese climbers Toshio Imanishi and Gyalzen Norbu.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Nanga_Parbat_The_Killer_Mountain.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Nanga Parbat</h3>
+
+                    <span>Height: 8,126 m • Pakistan</span>
+
+                    <p>
+                        Nanga Parbat is the ninth-highest mountain in the world and part of the western Himalayas.
+                    </p>
+
+                    <p>
+                        It is often called the “Killer Mountain” because of the many early climbing tragedies.
+                    </p>
+
+                    <p>
+                        The first successful ascent was made in 1953 by Austrian climber Hermann Buhl.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Gasherbrum_I.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Gasherbrum I</h3>
+
+                    <span>Height: 8,080 m • Pakistan / China</span>
+
+                    <p>
+                        Gasherbrum I is also known as Hidden Peak and is part of the Karakoram mountain range.
+                    </p>
+
+                    <p>
+                        It is the eleventh-highest mountain in the world.
+                    </p>
+
+                    <p>
+                        The first ascent occurred in 1958 by American climbers Pete Schoening and Andrew Kauffman.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Broad_Peak.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Broad Peak</h3>
+
+                    <span>Height: 8,051 m • Pakistan / China</span>
+
+                    <p>
+                        Broad Peak was named by British explorer Martin Conway in 1892 because of its wide summit ridge.
+                    </p>
+
+                    <p>
+                        It is the twelfth-highest mountain in the world.
+                    </p>
+
+                    <p>
+                        The first ascent was made in 1957 by an Austrian expedition.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Gasherbrum_II.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Gasherbrum II</h3>
+
+                    <span>Height: 8,035 m • Pakistan / China</span>
+
+                    <p>
+                        Gasherbrum II is the thirteenth-highest mountain in the world.
+                    </p>
+
+                    <p>
+                        It lies close to Gasherbrum I in the Karakoram range.
+                    </p>
+
+                    <p>
+                        The first ascent was completed in 1956 by an Austrian team led by Fritz Moravec.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Shishapangma.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Shishapangma</h3>
+
+                    <span>Height: 8,027 m • Tibet (China)</span>
+
+                    <p>
+                        Shishapangma is the fourteenth-highest mountain in the world and the lowest of the
+                        eight-thousanders.
+                    </p>
+
+                    <p>
+                        Unlike most other 8,000-meter peaks, it lies entirely within Tibet.
+                    </p>
+
+                    <p>
+                        The first ascent was made in 1964 by a Chinese expedition.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Rakaposhi.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Rakaposhi</h3>
+
+                    <span>Height: 7,788 m • Pakistan</span>
+
+                    <p>
+                        Rakaposhi is known for its extraordinary vertical rise above the Hunza Valley.
+                    </p>
+
+                    <p>
+                        The mountain rises more than 5,800 meters above the surrounding landscape.
+                    </p>
+
+                    <p>
+                        The first ascent was achieved in 1958 by British climbers Mike Banks and Tom Patey.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Mont_Blanc_from_Aiguille_du_Midi.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Mont Blanc</h3>
+
+                    <span>Height: 4,808 m • France / Italy</span>
+
+                    <p>
+                        Mont Blanc is the highest mountain in the Alps and Western Europe.
+                    </p>
+
+                    <p>
+                        It lies along the border between France and Italy and is one of the most famous peaks in Europe.
+                    </p>
+
+                    <p>
+                        The first ascent was achieved in 1786 by Jacques Balmat and Michel-Gabriel Paccard, marking a
+                        key moment in the birth of modern mountaineering.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Matterhorn_from_Domh%C3%BCtte_-_2.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Matterhorn</h3>
+
+                    <span>Height: 4,478 m • Switzerland / Italy</span>
+
+                    <p>
+                        The Matterhorn is one of the most recognizable mountains in the world due to its dramatic
+                        pyramid shape.
+                    </p>
+
+                    <p>
+                        It stands in the Pennine Alps on the border between Switzerland and Italy.
+                    </p>
+
+                    <p>
+                        The first successful ascent occurred in 1865 by Edward Whymper's expedition, though the descent
+                        tragically ended in several fatalities.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Denali_Mt_McKinley.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Denali</h3>
+
+                    <span>Height: 6,190 m • Alaska, USA</span>
+
+                    <p>
+                        Denali is the highest mountain in North America and dominates the Alaskan Range.
+                    </p>
+
+                    <p>
+                        Its name means “The High One” in the Koyukon Athabaskan language.
+                    </p>
+
+                    <p>
+                        The first confirmed ascent was achieved in 1913 by Hudson Stuck, Harry Karstens, Walter Harper,
+                        and Robert Tatum.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Aconcagua2016.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Aconcagua</h3>
+
+                    <span>Height: 6,961 m • Argentina</span>
+
+                    <p>
+                        Aconcagua is the highest mountain in South America and the tallest peak outside Asia.
+                    </p>
+
+                    <p>
+                        It is located in the Andes mountain range in western Argentina.
+                    </p>
+
+                    <p>
+                        The first recorded ascent was made in 1897 by Swiss climber Matthias Zurbriggen.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Mount_Kilimanjaro.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Mount Kilimanjaro</h3>
+
+                    <span>Height: 5,895 m • Tanzania</span>
+
+                    <p>
+                        Mount Kilimanjaro is the highest mountain in Africa and the tallest free-standing mountain in
+                        the world.
+                    </p>
+
+                    <p>
+                        It is a dormant stratovolcano composed of three volcanic cones: Kibo, Mawenzi, and Shira.
+                    </p>
+
+                    <p>
+                        The first successful summit was achieved in 1889 by Hans Meyer and Ludwig Purtscheller.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="fact-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Mount_Elbrus_from_the_south.jpg">
+
+                <div class="fact-text">
+
+                    <h3>Mount Elbrus</h3>
+
+                    <span>Height: 5,642 m • Russia</span>
+
+                    <p>
+                        Mount Elbrus is the highest mountain in Europe and part of the Caucasus mountain range.
+                    </p>
+
+                    <p>
+                        It is actually a dormant volcano with two summits.
+                    </p>
+
+                    <p>
+                        The first ascent of the east summit was made in 1829 by a Russian expedition.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="container">
+
+            <h2 class="section-title">Fascinating Mountain Facts</h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h4>14 Peaks Above 8000m</h4>
+                    <p>
+                        There are only fourteen mountains on Earth that rise above 8,000 meters above sea level, known
+                        as the "Eight-Thousanders."
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>Young Mountains</h4>
+                    <p>
+                        The Himalayas formed roughly 50 million years ago when the Indian tectonic plate collided with
+                        the Eurasian plate.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>Glacial Giants</h4>
+                    <p>
+                        The Himalayas contain the largest concentration of glaciers outside the polar regions and are
+                        sometimes called the “Third Pole.”
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h4>Highest Peaks</h4>
+                    <p>
+                        The five tallest mountains on Earth are Mount Everest, K2, Kangchenjunga, Lhotse, and Makalu.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        © 2026 Himalaya Atlas — Mountain Knowledge Archive
+
+    </footer>
+
+
+    <script>
+
+        /* scroll progress */
+
+        window.onscroll = function () {
+
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+            let scrolled = (winScroll / height) * 100;
+
+            document.getElementById("progress").style.width = scrolled + "%";
+
+        };
+
+
+        /* reveal animation */
+
+        const cards = document.querySelectorAll(".fact-card");
+
+        const observer = new IntersectionObserver(entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                }
+
+            });
+
+        });
+
+        cards.forEach(card => observer.observe(card));
+
+    </script>
+
+</body>
+
+</html>

@@ -1,1 +1,2 @@
-# banner-himalayas
+## banner-himalayas
+responsive mountain exploration test site with peak facts, images, and charts, built to simulate layouts for validating and demonstrating multiple cookie consent banners across sections

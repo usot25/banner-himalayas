@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://www.google.com/s2/favicons?domain=https://www.onetrust.com/" />
+
+    <title>Explore the Peaks - Himalaya Atlas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Inter, sans-serif;
+        }
+
+        body {
+            background: #0c0f14;
+            color: #e9edf4;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        /* layout */
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* navigation */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+        }
+
+        .logo {
+            font-weight: 600;
+            letter-spacing: .5px;
+            font-size: 18px;
+            color: #dbe6ff;
+        }
+
+        .nav-links a {
+            margin-left: 28px;
+            text-decoration: none;
+            color: #a8b3c7;
+            font-size: 14px;
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* hero */
+
+        .hero {
+            padding: 120px 0 90px 0;
+            text-align: center;
+
+            background: radial-gradient(circle at top, #1c2533, #0c0f14);
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: auto;
+            color: #a8b3c8;
+            font-size: 18px;
+        }
+
+        /* sections */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* grid */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        /* card */
+
+        .card {
+            background: #121720;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #1f2633;
+            transition: .25s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #30405b;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .card span {
+            font-size: 13px;
+            color: #7d8ba5;
+        }
+
+        .card p {
+            margin-top: 10px;
+            color: #a8b4c9;
+            font-size: 14.5px;
+        }
+
+        /* chart section */
+
+        .chart-box {
+            background: #111620;
+            padding: 40px;
+            border-radius: 14px;
+            border: 1px solid #1e2635;
+        }
+
+        /* footer */
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #1a2230;
+            color: #8c9ab2;
+            font-size: 14px;
+        }
+
+        /* back button */
+
+        .back-btn {
+            margin-left: 30px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid #2c3950;
+            background: #141a24;
+            color: #dbe5ff;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all .25s ease;
+        }
+
+        .back-btn:hover {
+            background: #4c7dff;
+            border-color: #4c7dff;
+            color: white;
+            transform: translateY(-1px);
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <nav>
+
+            <!-- <div class="logo">Himalaya Atlas</div> -->
+
+            <div class="nav-links">
+                <a href="index.html" class="back-btn">← Back</a>
+
+                <a href="index.html">Home</a>
+                <a href="peaks.html">Peaks</a>
+                <a href="mountain-facts.html">Facts</a>
+
+
+            </div>
+
+        </nav>
+
+    </div>
+
+
+
+    <!-- hero -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <h1>Explore the World's Highest Peaks</h1>
+
+            <p>
+                Only fourteen mountains on Earth rise above 8,000 meters above sea level.
+                These giants, known as the Eight-Thousanders, are located in the Himalaya and Karakoram ranges and
+                represent the ultimate challenge for mountaineers.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- peaks grid -->
+
+    <section>
+
+        <div class="container">
+
+            <h2 class="section-title">The 14 Highest Mountains on Earth</h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>1. Mount Everest</h3>
+                    <span>8848.86 m • Nepal / China</span>
+                    <p>The highest point on Earth, Everest towers above the Himalayas and remains the ultimate
+                        mountaineering objective.</p>
+                </div>
+
+                <div class="card">
+                    <h3>2. K2</h3>
+                    <span>8611 m • Pakistan / China</span>
+                    <p>The second highest mountain and one of the most technically difficult climbs in the world.</p>
+                </div>
+
+                <div class="card">
+                    <h3>3. Kangchenjunga</h3>
+                    <span>8586 m • Nepal / India</span>
+                    <p>Its name means “Five Treasures of Snow,” referring to its five distinct peaks.</p>
+                </div>
+
+                <div class="card">
+                    <h3>4. Lhotse</h3>
+                    <span>8516 m • Nepal / China</span>
+                    <p>Connected to Everest via the South Col, Lhotse shares much of Everest’s climbing route.</p>
+                </div>
+
+                <div class="card">
+                    <h3>5. Makalu</h3>
+                    <span>8485 m • Nepal / China</span>
+                    <p>A striking pyramid-shaped peak famous for its steep ridges and technical climbing.</p>
+                </div>
+
+                <div class="card">
+                    <h3>6. Cho Oyu</h3>
+                    <span>8188 m • Nepal / China</span>
+                    <p>Often considered the most accessible 8,000-meter peak due to its relatively moderate slopes.</p>
+                </div>
+
+                <div class="card">
+                    <h3>7. Dhaulagiri I</h3>
+                    <span>8167 m • Nepal</span>
+                    <p>Once believed to be the highest mountain in the world before Everest was measured.</p>
+                </div>
+
+                <div class="card">
+                    <h3>8. Manaslu</h3>
+                    <span>8163 m • Nepal</span>
+                    <p>Its name comes from the Sanskrit word “Manasa,” meaning spirit or intellect.</p>
+                </div>
+
+                <div class="card">
+                    <h3>9. Nanga Parbat</h3>
+                    <span>8126 m • Pakistan</span>
+                    <p>Known as the “Killer Mountain” due to its extremely dangerous climbing conditions.</p>
+                </div>
+
+                <div class="card">
+                    <h3>10. Annapurna I</h3>
+                    <span>8091 m • Nepal</span>
+                    <p>The first 8,000-meter peak ever climbed, in 1950.</p>
+                </div>
+
+                <div class="card">
+                    <h3>11. Gasherbrum I</h3>
+                    <span>8080 m • Pakistan / China</span>
+                    <p>Also known as Hidden Peak, located in the Karakoram Range.</p>
+                </div>
+
+                <div class="card">
+                    <h3>12. Broad Peak</h3>
+                    <span>8051 m • Pakistan / China</span>
+                    <p>Named for its massive summit ridge stretching more than 1.5 km.</p>
+                </div>
+
+                <div class="card">
+                    <h3>13. Gasherbrum II</h3>
+                    <span>8035 m • Pakistan / China</span>
+                    <p>One of the easier 8,000-meter peaks but still extremely challenging.</p>
+                </div>
+
+                <div class="card">
+                    <h3>14. Shishapangma</h3>
+                    <span>8027 m • China (Tibet)</span>
+                    <p>The lowest of the eight-thousanders and the only one entirely within Tibet.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- chart -->
+
+    <section>
+
+        <div class="container">
+
+            <h2 class="section-title">Peak Heights Comparison</h2>
+
+            <div class="chart-box">
+
+                <canvas id="peakChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        © 2026 Himalaya Atlas — Exploring the highest mountains on Earth
+
+    </footer>
+
+
+    <script>
+
+        const ctx = document.getElementById('peakChart');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [
+                    "Everest", "K2", "Kangchenjunga", "Lhotse", "Makalu",
+                    "Cho Oyu", "Dhaulagiri", "Manaslu", "Nanga Parbat",
+                    "Annapurna", "Gasherbrum I", "Broad Peak", "Gasherbrum II", "Shishapangma"
+                ],
+                datasets: [{
+                    label: 'Height (meters)',
+                    data: [
+                        8848, 8611, 8586, 8516, 8485,
+                        8188, 8167, 8163, 8126,
+                        8091, 8080, 8051, 8035, 8027
+                    ],
+                    borderColor: '#4f7cff',
+                    tension: 0.35,
+                    fill: false
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        labels: { color: "#cbd5e1" }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: "#94a3b8" },
+                        grid: { color: "#1f2937" }
+                    },
+                    y: {
+                        ticks: { color: "#94a3b8" },
+                        grid: { color: "#1f2937" }
+                    }
+                }
+            }
+        });
+
+    </script>
+
+
+</body>
+
+</html>
